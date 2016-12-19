@@ -1,4 +1,4 @@
 # BoykotVar API
 
     php artisan migrate
-    php artisan seed
+    php artisan db:seed

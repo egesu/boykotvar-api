@@ -24,6 +24,7 @@ $app->group(['prefix' => 'v1'], function($app) {
     $app->get('/user/current', 'UserController@getCurrentUser');
     rest('/user', 'UserController');
     rest('/media', 'MediaController');
+    rest('/concern', 'ConcernController');
 });
 
 

@@ -51,6 +51,11 @@ class Boycott extends Model
             ->relatedTo('boycott_cover_image');
     }
 
+    public function boycottConcerns()
+    {
+        return $this->hasMany('App\BoycottConcern');
+    }
+
     public function getUsersCountAttribute()
     {
         if (!array_key_exists('boycottUsersCount', $this->relations)) {

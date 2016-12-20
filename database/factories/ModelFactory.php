@@ -15,7 +15,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     $faker->addProvider(new Faker\Provider\tr_TR\Person($faker));
     return [
         'name' => $faker->name,
-        'email' => $faker->email,
+        'email' => $faker->unique()->safeEmail,
         'password' => $faker->password,
     ];
 });
@@ -57,5 +57,22 @@ $factory->define(App\Media::class, function (Faker\Generator $faker) {
             1920, 1024,
             'people'
         ),
+    ];
+});
+
+$factory->define(App\Concern::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->text(rand(5, 20)),
+    ];
+});
+
+$factory->define(App\BoycottConcern::class, function (Faker\Generator $faker) {
+    return [
+        'boycott_id' => function() {
+            return App\Boycott::inRandomOrder()->first()->id;
+        },
+        'concern_id' => function() {
+            return App\Concern::inRandomOrder()->first()->id;
+        },
     ];
 });

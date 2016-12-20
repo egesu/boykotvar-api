@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Boycott;
+use App\BoycottConcern;
+use App\Concern;
 use App\Media;
 use Illuminate\Http\Request;
 
@@ -40,6 +42,12 @@ class BoycottController extends Controller
             unset($input['media_ids']);
         }
 
+        if(isset($input['concern_ids'])) {
+            $concernIds = $input['concern_ids'];
+        } else {
+            return response('', 400);
+        }
+
         $input['created_by_id'] = $request->user()->id;
 
         $id = Boycott::create($input)->id;
@@ -47,6 +55,19 @@ class BoycottController extends Controller
         if(isset($mediaIds)) {
             Media::whereIn('id', $mediaIds)
                 ->update(['related_id' => $id]);
+        }
+
+        foreach($concernIds as $concernId) {
+            if(is_string($concernId)) {
+                $concern = Concern::create(['name' => $concernId]);
+            } else {
+                $concern = Concern::find($concernId);
+            }
+
+            BoycottConcern::create([
+                'boycott_id' => $id,
+                'concern_id' => $concern->id,
+            ]);
         }
 
         return response()->json([

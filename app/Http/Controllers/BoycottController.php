@@ -23,7 +23,7 @@ class BoycottController extends Controller
         return Boycott::with([
                 'boycottUsersCount',
                 'coverImage',
-            ])->paginate(20);
+            ])->orderBy('id', 'DESC')->paginate(20);
     }
 
     public function show($id)

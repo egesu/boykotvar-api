@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Boycott;
+use App\Media;
 use Illuminate\Http\Request;
 
 class BoycottController extends Controller
@@ -33,7 +34,21 @@ class BoycottController extends Controller
     public function store(Request $request)
     {
         $input = $request->input();
+
+        if(isset($input['media_ids'])) {
+            $mediaIds = $input['media_ids'];
+            unset($input['media_ids']);
+        }
+
+        $input['created_by_id'] = $request->user()->id;
+
         $id = Boycott::create($input)->id;
+
+        if(isset($mediaIds)) {
+            Media::whereIn('id', $mediaIds)
+                ->update(['related_id' => $id]);
+        }
+
         return response()->json([
             'id' => $id,
         ], 201);

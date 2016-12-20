@@ -23,6 +23,7 @@ $app->group(['prefix' => 'v1'], function($app) {
     $app->delete('/user/login', 'UserController@logout');
     $app->get('/user/current', 'UserController@getCurrentUser');
     rest('/user', 'UserController');
+    rest('/media', 'MediaController');
 });
 
 

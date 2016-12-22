@@ -13,13 +13,19 @@ class BoycottController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
         //
     }
 
+    /**
+     * @api {get} /boycott Get question detail with options
+     * @apiName Get Boycott List
+     * @apiGroup Boycott
+     *
+     * @throws \InvalidArgumentException
+     */
     public function index()
     {
         return Boycott::with([

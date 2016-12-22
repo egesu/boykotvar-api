@@ -11,15 +11,15 @@ class BoycottsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Boycott::class, 30)->create()->each(function($boycott) {
-            factory(App\Media::class)->create([
+        factory(App\Model\Boycott::class, 30)->create()->each(function($boycott) {
+            factory(App\Model\Media::class)->create([
                 'related_id' => $boycott->id,
                 'related_to' => 'boycott_cover_image',
             ]);
 
-            factory(App\BoycottConcern::class, rand(1, 5))->create([
+            factory(App\Model\BoycottConcern::class, rand(1, 5))->create([
                 'boycott_id' => $boycott->id,
-                'concern_id' => App\Concern::inRandomOrder()->first()->id,
+                'concern_id' => App\Model\Concern::inRandomOrder()->first()->id,
             ]);
         });
     }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Boycott;
-use App\BoycottPost;
+use App\Model\Boycott;
+use App\Model\BoycottPost;
 use Illuminate\Http\Request;
 
 class BoycottPostController extends Controller

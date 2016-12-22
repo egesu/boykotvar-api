@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Boycott;
-use App\BoycottConcern;
-use App\Concern;
-use App\Media;
+use App\Model\Boycott;
+use App\Model\BoycottConcern;
+use App\Model\Concern;
+use App\Model\Media;
 use Illuminate\Http\Request;
 
 class BoycottController extends Controller

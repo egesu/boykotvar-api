@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Concern;
+use App\Model\Concern;
 use Illuminate\Http\Request;
 
 class ConcernController extends Controller

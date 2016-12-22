@@ -1,11 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BoycottPost extends Model
 {
+
+    use SoftDeletes;
 
     protected $dates = [
         'created_at',
@@ -14,6 +17,6 @@ class BoycottPost extends Model
 
     public function boycott()
     {
-        return $this->belongsTo('App\Boycott');
+        return $this->belongsTo(\App\Model\Boycott::class);
     }
 }

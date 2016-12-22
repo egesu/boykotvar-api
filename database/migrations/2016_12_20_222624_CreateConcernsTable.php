@@ -16,8 +16,8 @@ class CreateConcernsTable extends Migration
         Schema::create('concerns', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 150);
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -11,6 +11,6 @@ class ConcernsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Concern::class, 50)->create();
+        factory(App\Model\Concern::class, 50)->create();
     }
 }

@@ -11,6 +11,6 @@ class BoycottUsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\BoycottUser::class, 1000)->create();
+        factory(App\Model\BoycottUser::class, 1000)->create();
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -24,12 +24,12 @@ class Concern extends Model
 
     public function boycottConcerns()
     {
-        return $this->hasMany('App\BoycottConcern');
+        return $this->hasMany(\App\Model\BoycottConcern::class);
     }
 
     public function image()
     {
-        return $this->hasOne('App\Media', 'related_id')
+        return $this->hasOne(\App\Model\Media::class, 'related_id')
             ->relatedTo('concern_logo');
     }
 }

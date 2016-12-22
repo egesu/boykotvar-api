@@ -11,6 +11,6 @@ class BoycottPostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\BoycottPost::class, 150)->create();
+        factory(App\Model\BoycottPost::class, 150)->create();
     }
 }

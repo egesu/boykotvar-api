@@ -18,6 +18,7 @@ class CreateBoycottPostsTable extends Migration
             $table->integer('boycott_id')->unsigned();
             $table->string('text', 10000);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('boycott_id')
                 ->references('id')

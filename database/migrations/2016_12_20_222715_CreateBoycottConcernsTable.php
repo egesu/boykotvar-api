@@ -18,6 +18,7 @@ class CreateBoycottConcernsTable extends Migration
             $table->integer('boycott_id')->unsigned();
             $table->integer('concern_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('boycott_id')
                 ->references('id')

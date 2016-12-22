@@ -1,0 +1,15 @@
+define({
+  "name": "BoykotVar",
+  "version": "0.1.0",
+  "description": "Api Dökümantasyonu",
+  "title": "Api | BoykotVar",
+  "url": "http://localhost:8000",
+  "sampleUrl": "http://localhost:8000",
+  "apidoc": "0.2.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2016-12-22T18:19:40.561Z",
+    "url": "http://apidocjs.com",
+    "version": "0.16.1"
+  }
+});

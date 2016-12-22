@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Boycott;
-use App\BoycottConcern;
-use App\Concern;
-use App\Media;
+use App\Model\Boycott;
+use App\Model\BoycottConcern;
+use App\Model\Concern;
+use App\Model\Media;
 use Illuminate\Http\Request;
 
 class BoycottController extends Controller
@@ -13,13 +13,19 @@ class BoycottController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
         //
     }
 
+    /**
+     * @api {get} /boycott Get question detail with options
+     * @apiName Get Boycott List
+     * @apiGroup Boycott
+     *
+     * @throws \InvalidArgumentException
+     */
     public function index()
     {
         return Boycott::with([

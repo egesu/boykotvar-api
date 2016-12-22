@@ -19,6 +19,7 @@ class CreateMediaTable extends Migration
             $table->string('related_to', 100);
             $table->string('path', 1000);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
